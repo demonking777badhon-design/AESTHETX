@@ -1,0 +1,6 @@
+{
+  "name": "AESTHETX LIFESTYLE | Premium Clothing Store",
+  "description": "Official online clothing store for AESTHETX LIFESTYLE - Bangladesh. Buying clothes is cheaper than therapy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

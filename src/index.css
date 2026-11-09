@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #1E3A2F;
+    --primary-hover: #162B23;
+    --primary-foreground: #F9F6F0;
+    
+    --secondary: #C85A32;
+    --secondary-hover: #B24E2A;
+    --secondary-foreground: #FFFFFF;
+    
+    --sage: #748D80;
+    --sage-light: #EBF0ED;
+    --sage-dark: #4B6357;
+    
+    --cream: #F9F6F0;
+    --cream-dark: #EDE7DC;
+    
+    --background: #FAF8F5;
+    --card: #FFFFFF;
+    --card-foreground: #1A1E1C;
+    --foreground: #1A1E1C;
+    
+    --muted: #626C66;
+    --muted-light: #F0EDE8;
+    --border: #E5DFD7;
+    --border-subtle: #EFEBE5;
+    
+    --accent: #C85A32;
+    --destructive: #DC2626;
+    --destructive-foreground: #FFFFFF;
+    --success: #16A34A;
+    --success-foreground: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+    letter-spacing: -0.011em;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  }
+}
+
+/* Prevent browser dark-mode black boxes on select inputs and dropdown popups */
+select,
+select:focus,
+select:active,
+select option,
+select optgroup {
+  background-color: #FFFFFF !important;
+  color: #1A1E1C !important;
+  color-scheme: light !important;
+}
+
+input,
+textarea,
+select {
+  color-scheme: light !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0EDE8;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4BCB3;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9A9188;
+}
+
+/* Print styling for invoices */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-invoice, #printable-invoice * {
+    visibility: visible;
+  }
+  #printable-invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+}
+
+/* ==========================================================================
+   Smooth Animations & Motion Choreography System (সব কিছুতে চমৎকার এনিমেশন)
+   ========================================================================== */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(200, 90, 50, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(200, 90, 50, 0);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Custom Animation Utility Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 2s ease-in-out infinite;
+}
+
+/* Interactive Card & Button Animation Enhancements */
+.card-hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px -10px rgba(30, 58, 47, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+}
+
+.button-interactive {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.button-interactive:hover {
+  transform: translateY(-1.5px) scale(1.02);
+}
+.button-interactive:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Stagger Animation Delays */
+.delay-50 { animation-delay: 50ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-250 { animation-delay: 250ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
